@@ -1,0 +1,94 @@
+﻿@model IEnumerable<WebApplicationDailyTask.Models.DisplayModel>
+
+@{
+    ViewData["Title"] = "DisplayData";
+    Layout = "~/Views/Shared/Master_Layout.cshtml";
+}
+
+<style type="text/css">
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+            color: white;
+        }
+</style>
+
+<h1>DisplayData</h1>
+
+<table id="customers">
+    <tr>
+        <th>RecordID</th>
+        <th>ID</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>EmailID</th>
+        <th>Password</th>
+        <th>ConfirmPassword</th>
+        <th>Phone</th>
+        <th>DOB</th>
+        <th>Gender</th>
+        <th>Department</th>
+        <th>Role</th>
+        <th>Fee</th>
+        <th>Status</th>
+        <th>Action</th>
+        
+       <!-- <th>Qualification</th>
+        <th>qualification1</th>
+        <th>qualification2</th>
+        <th>qualification3</th>-->
+        
+        
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+           <td>@item.RecordID</td>
+            <td>@item.ID</td>
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>
+            <td>@item.EmailID</td>
+            <td>@item.Password</td>
+            <td>@item.ConfirmPassword</td>
+            <td>@item.Phone</td>
+            <td>@item.DOB</td>
+            <td>@item.Gender</td>
+            <td>@item.Dept</td>
+            <td>@item.Role</td>
+            <td>@item.Fee</td>
+           
+            <td>@item.Status</td>
+           
+            <td>
+                @Html.ActionLink("ViewData","ViewData","Application",new {RecordID=item.RecordID},null) |
+                @Html.ActionLink("Download","Indexs","Download") |
+            
+            </td>
+           
+           
+
+        </tr>
+    }
+</table>

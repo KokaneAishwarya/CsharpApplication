@@ -1,0 +1,180 @@
+﻿@model LoginModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" />
+    <title>Login</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Times New Roman', Times, serif;
+        }
+        body{
+            background:#19123b;
+        }
+        .card{
+            border:none;
+            border-top:5px solid rgb(176,106,252);
+            background:#212042;
+            color:#57557a;
+        }
+        .main_div{
+            height:100vh;
+        }
+        p{
+            font-size:20px;
+            font-weight:500;
+        }
+
+        .division{
+            width:100%;
+            text-align:center;
+            margin:30px auto 20px;
+        }
+        .main-heading{
+            font-weight:500;
+            font-size:25px;
+        }
+
+        .myform{
+            padding:0 25px 0 35px;
+            background: #212042;
+            
+        }
+
+        .form-control{
+            border:1px solid #57557a;
+            border-radius:2px;
+            background:#212042;
+            margin-bottom:20px;
+            letter-spacing:1px;
+            color:skyblue;
+
+        }
+
+        .form-control:focus{
+                border: 1px solid #57557a;
+                border-radius: 5px;
+                background: #212042;
+               box-shadow:none;
+                letter-spacing: 1px;
+                color:#fff;
+
+        }
+        .bn{
+            text-decoration:underline;
+        }
+        .bn:hover{
+            cursor:pointer;
+        }
+        .form-check-input{
+            width:1rem !important;
+            height:1rem !important;
+            margin-top:5px;
+
+        }
+        .btn-primary{
+            background:linear-gradient(135deg,rgba(175,106,252,1)39%,rgba(116,17,255,1)100%);
+            border:none;
+            border-radius:50px;
+        }
+        .reg{
+          color:#57557a;
+          text-decoration:none;
+        }
+        .reg:hover{
+            color:white;
+            text-decoration:none;
+        }
+
+        
+
+
+
+    </style>
+</head>
+<body>
+    @using(Html.BeginForm()){
+    <div class="container">
+        <div class="row w-100 d-flex justify-content-center align-items-center main_div">
+            <div class="col-12 col-lg-6 col-md-8 col-xxl-5">
+                <div class="card py-3 px-2">
+                    <p class="text-center my-3 text-capitalize"><span>Connect with us </span></p>
+                    
+
+                    <div class="division">
+                        <div class="row">
+                            <div class="col-6 mx-auto mb-3">
+                                <span class="main-heading">
+                                    Login Form
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                        <div class="myform">
+                            <div class="mb-3 form-control">
+                            <label><b>User ID</b></label>
+                                @Html.TextBoxFor(model=>model.EmailID,new{@class="Uname"})
+                           
+                        </div>
+
+                            <div class="mb-3 form-control">
+                            <label><b>Password</b></label>
+                                @Html.TextBoxFor(model=>model.Password,new{@class="Pass"})
+                           
+                        </div>
+                        <br>
+   
+
+                            <input type="submit" name="log" class="btn btn-block btn-primary btn-lg" value="Login">
+
+                        <div class="row">
+                        <div class="col-md-6 col-12">
+                            <div class="form-group form-check text-left">
+                                <input type="checkbox" class="form-check-input" name="">
+                               <label class="form-check-label">Remember Me</label>
+                            </div>
+                            </div>
+
+                            <div class="col-md-6 col-12 bn text-capitalize reg ">
+                               @Html.ActionLink("Forget Password","ForgetPassword","Application")
+                               <br>
+                                    @Html.ActionLink("Sign In","Register","Application")
+                            </div>
+                                <br>
+                                
+                                @ViewBag.error
+                                
+                        </div>
+                     
+                     </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+   }
+</body>
+</html>

@@ -1,0 +1,134 @@
+﻿@model WebApplicationDailyTask.Models.ViewModel;
+@{
+    ViewData["Title"] = "ViewData";
+    Layout = "~/Views/Shared/Master_Layout.cshtml";
+}
+
+
+
+<style>
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+            color: white;
+        }
+</style>
+
+
+<h1>ViewData</h1>
+
+
+@using (Html.BeginForm())
+{
+
+    <table style="width:100%" id="customers">
+        <tr>
+            <th>
+                EmpId
+            </th>
+            <td>
+                @Html.HiddenFor(model => model.RecordID)
+                @Html.TextBoxFor(model => model.ID)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                FirstName
+            </th>
+            <td>
+                @Html.TextBoxFor(model => model.FirstName)
+            </td>
+            <th>
+                LastName
+            </th>
+            <td>
+                @Html.TextBoxFor(model => model.LastName)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                EmailID
+            </th>
+            <td>
+                @Html.TextBoxFor(model => model.EmailID)
+            </td>
+            <th>
+                Password
+            </th>
+            <td>
+                @Html.TextBoxFor(model => model.Password)
+            </td>
+            <th>
+                ConfirmPassword
+            </th>
+            <td>
+                @Html.TextBoxFor(model => model.ConfirmPassword)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Fee
+            </th>
+            <td>
+                @Html.TextBoxFor(model => model.Fee)
+            </td>
+            <th>
+                DOB
+            </th>
+            <td>
+                @Html.EditorFor(model => model.DOB)
+            </td>
+        </tr>
+        <tr>
+
+            <th>
+                Department
+            </th>
+            <td>
+                @Html.DropDownListFor(model => model.Dept, new List<SelectListItem>
+            {
+            new SelectListItem { Text="--Select--",Value="0"},
+            new SelectListItem {Text="Web Dev",Value="Web Dev"},
+            new SelectListItem {Text="RPA",Value="RPA"},
+            new SelectListItem {Text="Java Dev",Value="Java Dev"},
+            new SelectListItem {Text="Testing",Value="Testing"},
+            new SelectListItem {Text="QA",Value="QA"}
+            }, new { @class = "form-control" })
+            </td>
+
+
+
+            <th>Status</th>
+            <td>
+                @Html.DropDownListFor(model => model.Status, new List<SelectListItem> {
+            new SelectListItem { Text="--Select--",Value="0"},
+            new SelectListItem { Text="Active",Value="true"},
+            new SelectListItem { Text="InActive",Value="false"}
+            }, new { @class = "form-control" })
+            </td>
+        </tr>
+
+       
+    </table>
+}

@@ -1,0 +1,23 @@
+﻿@using WebApplicationDailyTask.Models
+@model List<FileModel>
+@{
+    ViewData["Title"] = "Indexs";
+    Layout = "~/Views/Shared/Master_Layout.cshtml";
+}
+
+<h1>Indexs</h1>
+
+
+<table>
+    <tr>
+        <th>File Name</th>
+        <th></th>
+    </tr>
+    @foreach (FileModel file in Model)
+    {
+        <tr>
+            <td>@file.FileName</td>
+            <td>@Html.ActionLink("Download","DownloadFile",new{fileName=file.FileName})</td>
+        </tr>
+    }
+</table>

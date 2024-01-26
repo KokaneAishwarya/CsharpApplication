@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <table style="width:100%;text-align:center;   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+border:solid;border-radius:20px ; font-weight:bold;font-size:30px;font-family:Calibri;color:whitesmoke;">
+        <tr>
+            <td>
+                Welcome To Aarohi FI Manegments
+
+            </td>
+        </tr>
+    </table>
+
+    <table style="width:100%; text-align:center; background: linear-gradient(90deg, rgba(2,0,36,0.7) 0%, rgba(9,9,121,0.5) 35%, rgba(0,212,255,1) 100%);
+           border:solid;border-radius:20px">
+        <tr>
+            <td>@Html.ActionLink("HomePage","Home","Application")</td>
+            <td>@Html.ActionLink("DisplayPage","DisplayData","Application")</td>
+            <td>@Html.ActionLink("Uploading","Index","Application")</td>
+            <td>@Html.ActionLink("Logout","Login","Application")</td>
+        </tr>
+    </table>
+    <div style="border:solid;margin:20px;padding:20px">
+        @RenderBody()
+    </div>
+
+    <table style="width:100%; text-align:center; background: linear-gradient(90deg, rgba(2,0,36,0.7) 0%, rgba(9,9,121,0.5) 35%, rgba(0,212,255,1) 100%);
+           border:solid;border-radius:20px">
+        <tr>
+            <td>&copy  copy right 2023</td>
+        </tr>
+    </table>
+</body>
+</html>
